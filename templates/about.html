@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    width: 100%;
+    margin: 0;
+}
+nav ul{
+    background: linear-gradient(to right, #0e0e0e, #7a7a7a);
+    overflow: hidden;/*for mobile view it hides the content*/
+    margin:0;
+    padding:0;
+}
+nav ul.topnav li{
+    list-style: none;
+    float: left;
+    
+}
+ul.topnav li.topnav-right{
+    float: right;
+}
+
+ul.topnav li a{
+    display: block;
+    text-decoration: none;
+    min-height: 16px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/*honvering*/
+ul.topnav li a:hover{
+    background-color: #634343;
+    color: white;
+}
+/*class 1 ends here creating a nav bar*/
+/*adding drop down menu when shrinking the page in calss 2*/
+
+ul.topnav li.dropdownicon{
+    display: none;
+}
+
+/*For Mobile Sake*/
+@media screen and (max-width:680px){
+    ul.topnav li:not(:nth-child(1)){
+        display: none;
+    }
+
+    ul.topnav li.dropdownicon{
+        display: block;
+        float: right;
+    }  
+   
+    ul.topnav.responsive li.dropdownicon{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul.topnav.responsive{
+        position: relative;
+    }
+    ul.topnav.responsive li{
+        display: inline;
+        float: none;
+    }
+    ul.topnav.responsive li a{
+        display: block;
+        float: left;
+    }
+}
+p.justified {
+            text-align: justify;
+            color: white;
+        }
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(53, 53, 53, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(129, 129, 129, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.last {
+    color: white;
+    text-align: center;
+}
+
+</style>
+<body background="D:\PROJS\FinalYrProject\RetinalSegmentation-MainApp\static\images\BG1.jpg">
+    <nav>
+        <ul class="topnav" id="dropdownClick">
+            <li><a href="/index" {% if request.path == '/index' %}class="active"{% endif %}>Home</a></li>
+            <li class="topnav-right"><a href="/logout" {% if request.path == '/logout' %}class="active"{% endif %}>Logout</a></li>
+            <li class="dropdownicon"><a href="javascript:void(0);" onclick="dropDownMenu()">&#x2630;</a></li>
+         </ul>
+    </nav>   
+<script>
+function dropDownMenu(){
+    var x= document.getElementById("dropdownClick");
+    if (x.className=="topnav")
+    {
+        x.className +=" responsive";
+        //changing topnav to topnav.responsive  
+    }
+    else
+    {
+        x.className="topnav";
+    }
+}
+</script>
+    <div class="container">
+        <h1>RETINAL VESSEL SEGMENTATION</h1>
+        <div class="content">
+            <div class="section">
+                <h2>Convolutional Neural Networks (CNN)</h2>
+                <p class="justified">
+                    Convolutional Neural Networks (CNNs) are a class of deep neural networks, most commonly applied to analyzing visual imagery.
+                    They are biologically inspired variants of multilayer perceptrons designed to mimic the behavior of the visual cortex.
+                    CNNs have applications in image and video recognition, recommender systems, image classification, medical image analysis, and natural language processing.
+                </p>
+                <p class="justified">
+                    CNNs apply a series of filters to the raw pixel data of an image to extract and learn features, which are then used to classify the image.
+                    They consist of an input layer, multiple hidden layers, and an output layer. Each hidden layer of a CNN typically consists of convolutional layers, pooling layers, and fully connected layers.
+                </p>
+            </div>
+            <div class="section">
+                <h2>UNet Model</h2>
+                <p class="justified">
+                    The UNet architecture is a popular convolutional neural network architecture for semantic image segmentation, particularly in the field of medical image analysis.
+                    It was developed for biomedical image segmentation, but it has since found applications in various other domains.
+                </p>
+                <p class="justified">
+                    UNet is known for its symmetric architecture, where the contracting path (left side) captures context and the expanding path (right side) enables precise localization.
+                    It consists of a contracting path to capture context and a symmetric expanding path that enables precise localization.
+                </p>
+                <p class="justified">
+                    UNet has been widely adopted due to its effectiveness in segmenting medical images, such as those from microscopy, ultrasound, and MRI scans.
+                </p>
+            </div>
+            <div class="section">
+                <h2>About The Dataset</h2>
+                <p class="justified">
+                    The dataset used for training and evaluating the UNet model primarily consists of retinal images, each accompanied by manually labeled annotations that highlight
+                    the retinal vessels. These annotations are essential for training the model and assessing its performance accurately.
+                </p>
+                <p class="justified">
+                    The images in the dataset exhibit variations in lighting, camera angles, and pathology levels, ensuring that the model can effectively handle diverse scenarios. This diversity is achieved by gathering 
+                    images from various sources, including public datasets, clinical archives, and academic research.
+                </p>
+                <p class="justified">
+                    The broad range of data in the dataset enriches the model's 
+                    training with real-world variability, enhancing its ability to generalize and perform well in various clinical settings.
+                </p>
+            </div>
+        </div>
+    </div>
+    <p>
+        <p class="last">Batch-1, AIML, BMSIT&M<br>© 2024 Retinal-Vessel-Segmentation.</p>
+    </p>
+</body>
+</html>

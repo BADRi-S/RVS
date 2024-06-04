@@ -1,0 +1,44 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('D:\PROJS\FinalYrProject\RetinalSegmentation-MainApp\static\images\BG1.jpg');
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+p {
+    line-height: 1.6;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+} */

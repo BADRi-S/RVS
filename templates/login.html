@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="{{ url_for('login') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 20px;
+            background-color: rgba(53, 53, 53, 0.5);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(129, 129, 129, 0.1);
+        }
+        .description {
+            width: 50%;
+            padding-right: 20px;
+            color: white;
+            font-size: larger;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .description h1{
+            font: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .login-form {
+            width: 80%;
+        }
+        .login-form label, .login-form input {
+            display: block;
+            margin: 10px auto;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="description">
+            <h1>RETINAL VESSEL SEGMENTATION</h1>
+            <p>This application performs segmentation of retinal vessels from fundus images using a U-Net model. It helps in detecting, highlighting and analyzing retinal blood vessels, which is crucial for diagnosing various eye diseases.</p>
+        </div>
+        <div class="login-form">
+            <h1>LOGIN</h1>
+            <form action="{{ url_for('login') }}" method="post">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

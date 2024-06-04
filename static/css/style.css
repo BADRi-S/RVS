@@ -1,0 +1,112 @@
+/* static/css/styles.css */
+
+/* .background-image{ 
+    background-image: url('../images/BG1.jpg');
+    background-size: cover;
+    position: absolute;
+    text-align: center;
+} */
+body{
+    background-image: url('../images/BG1.jpg');
+}
+
+h1 {
+    margin: 70px; 
+    text-align: center;
+    color: #ffffff; 
+}
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+input[type="submit"] {
+    background-color: #7e6535; 
+    color: white;
+    cursor: pointer;
+}
+
+/*Nav bar*/
+
+nav{
+    width: 100%;
+    margin: 0;
+}
+nav ul{
+    background: linear-gradient(to right, #0e0e0e, #7a7a7a);
+    overflow: hidden;/*for mobile view it hides the content*/
+    margin:0;
+    padding:0;
+}
+nav ul.topnav li{
+    list-style: none;
+    float: left;
+    
+}
+ul.topnav li.topnav-right{
+    float: right;
+}
+
+ul.topnav li a{
+    display: block;
+    text-decoration: none;
+    min-height: 16px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/*honvering*/
+ul.topnav li a:hover{
+    background-color: #634343;
+    color: white;
+}
+/*class 1 ends here creating a nav bar*/
+/*adding drop down menu when shrinking the page in calss 2*/
+
+ul.topnav li.dropdownicon{
+    display: none;
+}
+
+/*For Mobile Sake*/
+@media screen and (max-width:680px){
+    ul.topnav li:not(:nth-child(1)){
+        display: none;
+    }
+
+    ul.topnav li.dropdownicon{
+        display: block;
+        float: right;
+    }  
+   
+    ul.topnav.responsive li.dropdownicon{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul.topnav.responsive{
+        position: relative;
+    }
+    ul.topnav.responsive li{
+        display: inline;
+        float: none;
+    }
+    ul.topnav.responsive li a{
+        display: block;
+        float: left;
+    }
+}

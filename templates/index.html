@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul class="topnav" id="dropdownClick">
+            <li><a href="/about" {% if request.path == '/about' %}class="active"{% endif %}>ABOUT</a></li>
+            <li class="topnav-right"><a href="/logout" {% if request.path == '/logout' %}class="active"{% endif %}>Logout</a></li>
+            <li class="dropdownicon"><a href="javascript:void(0);" onclick="dropDownMenu()">&#x2630;</a></li>
+        </ul>
+    </nav>   
+<script>
+function dropDownMenu(){
+    var x= document.getElementById("dropdownClick");
+    if (x.className=="topnav")
+    {
+        x.className +=" responsive";
+        //changing topnav to topnav.responsive  
+    }
+    else
+    {
+        x.className="topnav";
+    }
+}
+</script>
+    <h1>Image Segmentation</h1>
+    <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

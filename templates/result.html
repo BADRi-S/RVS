@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+    <nav>
+        <ul class="topnav" id="dropdownClick">
+            <li><a href="/index" {% if request.path == '/index' %}class="active"{% endif %}>Home</a></li>
+            <li><a href="/about" {% if request.path == '/about' %}class="active"{% endif %}>ABOUT</a></li>
+            <li class="topnav-right"><a href="/logout" {% if request.path == '/logout' %}class="active"{% endif %}>Logout</a></li>
+            <li class="dropdownicon"><a href="javascript:void(0);" onclick="dropDownMenu()">&#x2630;</a></li>
+        </ul>
+    </nav>  
+<script>
+function dropDownMenu(){
+    var x= document.getElementById("dropdownClick");
+    if (x.className=="topnav")
+    {
+        x.className +=" responsive";
+        //changing topnav to topnav.responsive  
+    }
+    else
+    {
+        x.className="topnav";
+    }
+}
+</script>
+    
+    <div class="container">
+    <h1>Result</h1>
+    
+    <div class="content">
+        <div class="image"><h2>Original Image</h2>
+            <img src="data:image/png;base64,{{ original_image }}" alt="Original Image">
+        </div>
+        <div class="image"><h2>Masked Image</h2>
+            <img src="data:image/png;base64,{{ masked_image }}" alt="Masked Image">
+        </div>
+        <div class="image"><h2>Post-Processed Image</h2>
+            <img src="data:image/png;base64,{{ post_processed_image }}" alt="Post-Processed Image">
+        </div>
+    </div>
+</div>
+</body>
+</html>
